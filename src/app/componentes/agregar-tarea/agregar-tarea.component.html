@@ -1,0 +1,34 @@
+<div class="cont">
+  <form method="get" action="tareas">
+    <div class="cuadrito">
+      <label for="titulo" class="label">Titulo</label>
+      <div>
+        <input id="titulo" class="input1" type="text" placeholder="Nombre de la tarea" required="true">
+      </div>
+    </div>
+
+    <div class="cuadrito">
+      <mat-label for="estado">Estado</mat-label>
+      <div class = "input2">
+        <mat-select [value]="estadoSeleccionado" (selectionChange)="estadoSeleccionado = $event.value">
+          <mat-option *ngFor="let estado of estados" [value]="estado">
+            {{ estado }}
+          </mat-option>
+        </mat-select>
+      </div>
+    </div>
+
+    
+
+    <ul class="botones">
+      <li>
+        <button class="btn" type="reset"> Cancelar </button> 
+      </li>
+      <li>
+        <button class="btn" id="subir" type="submit"> subir</button> 
+      </li>
+    </ul>
+  </form>
+
+  <script src="agregar-tarea.component.ts" async defer></script>
+</div>
