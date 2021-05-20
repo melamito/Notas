@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LitaTareasComponent } from './lita-tareas.component';
+import { ListaNotasComponent } from './lista-notas.component';
 
-describe('LitaTareasComponent', () => {
-  let component: LitaTareasComponent;
-  let fixture: ComponentFixture<LitaTareasComponent>;
+describe('ListaNotasComponent', () => {
+  let component: ListaNotasComponent;
+  let fixture: ComponentFixture<ListaNotasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LitaTareasComponent ]
+      declarations: [ ListaNotasComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LitaTareasComponent);
+    fixture = TestBed.createComponent(ListaNotasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

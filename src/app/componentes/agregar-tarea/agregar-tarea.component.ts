@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange, Input } from '@angular/core';
+import {FormBuilder,FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-tarea',
@@ -10,16 +11,23 @@ import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange, Input } from
 
 export class AgregarTareaComponent implements OnInit {
 
-  estadoSeleccionado:any = '';
-
-  estados:any[]= ['Iniciado','Enproceso','Terminado'];
+  formulario:FormGroup;
+  constructor(private fb:FormBuilder){
+    this.formulario=this.fb.group({
+      titulo:['',[Validators.required]],
+      estado:['',[Validators.required]],
+      descripcion:['',[Validators.required]]
+    });
+  }
 
   ngOnInit():void{
-    let estado=this.estadoSeleccionado;
-    console.log(estado);
+  
   }
   
-
+  EnviarDatos(){
+    console.log(this.formulario.get("titulo")?.value);
+    console.log(this.formulario.get("estado")?.value);
+  }
   
 }
 

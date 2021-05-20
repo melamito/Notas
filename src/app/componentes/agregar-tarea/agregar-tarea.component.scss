@@ -1,5 +1,5 @@
 .cont{
-    width: 100%;;
+    width: 100%;
 }
 
 form{
@@ -11,30 +11,23 @@ form{
    
 }
 
-label, mat-label{
-    margin-bottom:5px;
-}
-
 .cuadrito{
     margin-top:15px;
     margin-bottom: 15px;
 }
 
-.input2, .input1{
+.input2, .input1, .input3{
     margin-top: 5px;;
     width: 100%;
     height: 30px;
     border-radius: 5px;
     border:1px solid black;
-    font-size: 23px;
+    font-size: 20px;
+    font-family: 'Zilla Slab', serif;
 }
 
-
-
-.mat-form-field-underline {
-
-    width: 10%;
-    pointer-events: none;
+.input3{
+    height: 75px;
 }
 
 .btn{
@@ -59,7 +52,5 @@ label, mat-label{
     list-style-type:none;
     display: flex;
     justify-content: flex-end;
-    
-
 }
 

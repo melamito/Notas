@@ -1,33 +1,35 @@
 <div class="cont">
-  <form method="get" action="tareas">
+  <form [formGroup]="formulario" (ngSubmit)="EnviarDatos()" novalidate>
     <div class="cuadrito">
       <label for="titulo" class="label">Titulo</label>
       <div>
-        <input id="titulo" class="input1" type="text" placeholder="Nombre de la tarea" required="true">
+        <input id="titulo" class="input1" type="text" placeholder="Nombre de la tarea" formControlName="titulo">
       </div>
     </div>
 
     <div class="cuadrito">
-      <mat-label for="estado">Estado</mat-label>
-      <div class = "input2">
-        <mat-select [value]="estadoSeleccionado" (selectionChange)="estadoSeleccionado = $event.value">
-          <mat-option *ngFor="let estado of estados" [value]="estado">
-            {{ estado }}
-          </mat-option>
-        </mat-select>
+      <label for="estado">Estado</label>
+      <div >
+        <select name="estado" class = "input2" formControlName="estado" >
+          <option value="1" selected>Abierto</option>
+          <option value="2">En proceso</option>
+          <option value="3">Cerrado</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="descripcion" class="label">Descripcion</label>
+      <div >
+        <textarea id="descripcion" type="text" placeholder="Descripcion..." maxlength="150" required="true" class="input3" formControlName="descripcion"></textarea>
       </div>
     </div>
 
     
 
-    <ul class="botones">
-      <li>
-        <button class="btn" type="reset"> Cancelar </button> 
-      </li>
-      <li>
-        <button class="btn" id="subir" type="submit"> subir</button> 
-      </li>
-    </ul>
+    <div class="botones">
+        <button class="btn" id="subir" type="submit"> Crear </button> 
+    </div>
   </form>
 
   <script src="agregar-tarea.component.ts" async defer></script>
