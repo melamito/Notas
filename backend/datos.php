@@ -2,12 +2,18 @@
 
 
 header('Content-type: application/json');
-$json=file_get_contents('php://input');
+header('Access-Control-Allow-Origin: *');
 
+$json=file_get_contents('php://input');
 $data=json_decode($json);
 
-echo "ok";
+$archivo= fopen("datos.json","w");
+fwrite($archivo,$json);
 
+var_dump($data);
+
+$variable= "ok";
+echo json_encode($variable);
 
 
 
