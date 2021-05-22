@@ -1,5 +1,7 @@
 import { Component, OnInit, OnChanges, SimpleChanges, SimpleChange, Input } from '@angular/core';
 import {FormBuilder,FormControl, FormGroup, Validators} from '@angular/forms';
+import { Nota } from '../../interfaces/Nota';
+import { NotasService } from '../../servicio/notas.service';
 
 @Component({
   selector: 'app-agregar-tarea',
@@ -12,7 +14,7 @@ import {FormBuilder,FormControl, FormGroup, Validators} from '@angular/forms';
 export class AgregarTareaComponent implements OnInit {
 
   formulario:FormGroup;
-  constructor(private fb:FormBuilder){
+  constructor(private fb:FormBuilder,private servicio:NotasService){
     this.formulario=this.fb.group({
       titulo:['',[Validators.required]],
       estado:['',[Validators.required]],
@@ -23,10 +25,19 @@ export class AgregarTareaComponent implements OnInit {
   ngOnInit():void{
   
   }
-  
+
   EnviarDatos(){
-    console.log(this.formulario.get("titulo")?.value);
-    console.log(this.formulario.get("estado")?.value);
+    let lista:Array<Nota>=[{
+        titulo:this.formulario.get("titulo")?.value,
+        estado:this.formulario.get("estado")?.value,
+        descripcion:this.formulario.get("descripcion")?.value
+      }
+    ];
+
+    this.servicio.GuardarDatos( lista ).subscribe(datos=>{
+      console.log(datos);
+    });
+
   }
   
 }
